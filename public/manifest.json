@@ -1,0 +1,151 @@
+{
+  "name": "LeagueFlow - Sports League Management",
+  "short_name": "LeagueFlow",
+  "description": "Complete sports league management platform with real-time updates, automated scheduling, and fan engagement features.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "orientation": "portrait-primary",
+  "categories": ["sports", "productivity", "business"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "League Dashboard"
+    },
+    {
+      "src": "/screenshots/mobile-1.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Referee Interface"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Leagues",
+      "short_name": "Leagues",
+      "description": "View all leagues",
+      "url": "/leagues",
+      "icons": [
+        {
+          "src": "/icons/shortcut-leagues.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Teams",
+      "short_name": "Teams",
+      "description": "Manage teams",
+      "url": "/teams",
+      "icons": [
+        {
+          "src": "/icons/shortcut-teams.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Matches",
+      "short_name": "Matches",
+      "description": "View matches",
+      "url": "/matches",
+      "icons": [
+        {
+          "src": "/icons/shortcut-matches.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Referee",
+      "short_name": "Referee",
+      "description": "Referee interface",
+      "url": "/referee",
+      "icons": [
+        {
+          "src": "/icons/shortcut-referee.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["image/*", "video/*"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+leagueflow",
+      "url": "/league/%s"
+    }
+  ],
+  "prefer_related_applications": false
+}
