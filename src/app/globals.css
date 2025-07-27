@@ -1,115 +1,263 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 210 100% 50%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 210 100% 50%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 210 100% 50%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 210 100% 50%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+@theme {
+  /* Sports League Theme - Beautiful Colors */
+  --color-background: oklch(0.9849 0.0005 106.8092);
+  --color-foreground: oklch(0.1725 0.0078 264.5320);
+  --color-card: oklch(1.0000 0 0);
+  --color-card-foreground: oklch(0.1725 0.0078 264.5320);
+  --color-popover: oklch(1.0000 0 0);
+  --color-popover-foreground: oklch(0.1725 0.0078 264.5320);
+  
+  /* Primary - Sports Blue */
+  --color-primary-50: oklch(0.9648 0.0315 230.0000);
+  --color-primary-100: oklch(0.9166 0.0630 230.0000);
+  --color-primary-200: oklch(0.8429 0.1260 230.0000);
+  --color-primary-300: oklch(0.7692 0.1890 230.0000);
+  --color-primary-400: oklch(0.6956 0.2520 230.0000);
+  --color-primary-500: oklch(0.5594 0.2070 230.0000);
+  --color-primary-600: oklch(0.4705 0.1740 230.0000);
+  --color-primary-700: oklch(0.4126 0.1530 230.0000);
+  --color-primary-800: oklch(0.3548 0.1320 230.0000);
+  --color-primary-900: oklch(0.2970 0.1110 230.0000);
+  --color-primary: oklch(0.5594 0.2070 230.0000);
+  --color-primary-foreground: oklch(0.9849 0.0005 106.8092);
+  
+  /* Secondary - Energy Yellow */
+  --color-secondary-50: oklch(0.9737 0.0363 85.0000);
+  --color-secondary-100: oklch(0.9474 0.0726 85.0000);
+  --color-secondary-200: oklch(0.8947 0.1452 85.0000);
+  --color-secondary-300: oklch(0.8421 0.2178 85.0000);
+  --color-secondary-400: oklch(0.7895 0.2904 85.0000);
+  --color-secondary-500: oklch(0.7316 0.1870 85.0000);
+  --color-secondary-600: oklch(0.6316 0.1607 85.0000);
+  --color-secondary-700: oklch(0.5779 0.1270 85.0000);
+  --color-secondary-800: oklch(0.5242 0.0933 85.0000);
+  --color-secondary-900: oklch(0.4705 0.0596 85.0000);
+  --color-secondary: oklch(0.7316 0.1870 85.0000);
+  --color-secondary-foreground: oklch(0.1725 0.0078 264.5320);
+  
+  /* Success - Victory Green */
+  --color-success-50: oklch(0.9648 0.0339 145.0000);
+  --color-success-100: oklch(0.9166 0.0678 145.0000);
+  --color-success-200: oklch(0.8429 0.1356 145.0000);
+  --color-success-300: oklch(0.7692 0.2034 145.0000);
+  --color-success-400: oklch(0.6956 0.2712 145.0000);
+  --color-success-500: oklch(0.6278 0.1760 145.0000);
+  --color-success-600: oklch(0.5278 0.1480 145.0000);
+  --color-success-700: oklch(0.4704 0.1400 145.0000);
+  --color-success-800: oklch(0.4130 0.1320 145.0000);
+  --color-success-900: oklch(0.3556 0.1240 145.0000);
+  
+  /* Warning - Energy Orange */
+  --color-warning-50: oklch(0.9737 0.0316 70.0000);
+  --color-warning-100: oklch(0.9474 0.0632 70.0000);
+  --color-warning-200: oklch(0.8947 0.1264 70.0000);
+  --color-warning-300: oklch(0.8421 0.1896 70.0000);
+  --color-warning-400: oklch(0.7895 0.2528 70.0000);
+  --color-warning-500: oklch(0.7316 0.1632 70.0000);
+  --color-warning-600: oklch(0.6316 0.1390 70.0000);
+  --color-warning-700: oklch(0.5779 0.1158 70.0000);
+  --color-warning-800: oklch(0.5242 0.0926 70.0000);
+  --color-warning-900: oklch(0.4705 0.0694 70.0000);
+  
+  /* Destructive - Alert Red */
+  --color-destructive: oklch(0.5594 0.1900 25.8625);
+  --color-destructive-foreground: oklch(0.9849 0.0005 106.8092);
+  
+  /* Muted & Accents */
+  --color-muted: oklch(0.9166 0.0039 264.5320);
+  --color-muted-foreground: oklch(0.5103 0.0156 264.5320);
+  --color-accent: oklch(0.9166 0.0039 264.5320);
+  --color-accent-foreground: oklch(0.1725 0.0078 264.5320);
+  
+  /* Border & Input */
+  --color-border: oklch(0.8853 0.0078 264.5320);
+  --color-input: oklch(0.9166 0.0039 264.5320);
+  --color-ring: oklch(0.5594 0.2070 230.0000);
+  
+  /* Charts */
+  --color-chart-1: oklch(0.5594 0.2070 230.0000);
+  --color-chart-2: oklch(0.6278 0.1760 145.0000);
+  --color-chart-3: oklch(0.7316 0.1870 85.0000);
+  --color-chart-4: oklch(0.5594 0.1900 25.0000);
+  --color-chart-5: oklch(0.6500 0.1500 300.0000);
+  
+  /* Typography */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  
+  /* Radius */
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Shadows */
+  --shadow-2xs: 0px 1px 2px 0px oklch(0.1725 0.0078 264.5320 / 0.05);
+  --shadow-xs: 0px 1px 2px 0px oklch(0.1725 0.0078 264.5320 / 0.1);
+  --shadow-sm: 0px 1px 3px 0px oklch(0.1725 0.0078 264.5320 / 0.1), 0px 1px 2px 0px oklch(0.1725 0.0078 264.5320 / 0.06);
+  --shadow: 0px 1px 3px 0px oklch(0.1725 0.0078 264.5320 / 0.1), 0px 1px 2px 0px oklch(0.1725 0.0078 264.5320 / 0.06);
+  --shadow-md: 0px 4px 6px -1px oklch(0.1725 0.0078 264.5320 / 0.1), 0px 2px 4px -1px oklch(0.1725 0.0078 264.5320 / 0.06);
+  --shadow-lg: 0px 10px 15px -3px oklch(0.1725 0.0078 264.5320 / 0.1), 0px 4px 6px -2px oklch(0.1725 0.0078 264.5320 / 0.05);
+  --shadow-xl: 0px 20px 25px -5px oklch(0.1725 0.0078 264.5320 / 0.1), 0px 10px 10px -5px oklch(0.1725 0.0078 264.5320 / 0.04);
+  --shadow-2xl: 0px 25px 50px -12px oklch(0.1725 0.0078 264.5320 / 0.25);
+  
+  /* Sports Specific Shadows */
+  --shadow-sports: 0px 4px 20px oklch(0.5594 0.2070 230.0000 / 0.15);
+  --shadow-team: 0px 4px 20px oklch(0.6278 0.1760 145.0000 / 0.15);
+  --shadow-match: 0px 4px 20px oklch(0.7316 0.1870 85.0000 / 0.15);
+  
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-in: slide-in 0.3s ease-out;
+  --animate-bounce-soft: bounce-soft 2s infinite;
 }
 
-@layer base {
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+@theme {
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@layer components {
-  .sports-gradient {
-    @apply bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700;
-  }
-  
-  .team-gradient {
-    @apply bg-gradient-to-br from-success-500 via-success-600 to-success-700;
-  }
-  
-  .match-gradient {
-    @apply bg-gradient-to-br from-warning-500 via-warning-600 to-warning-700;
-  }
-  
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-lg;
-  }
-  
-  .dark .glass-card {
-    @apply bg-gray-900/80 border-gray-700/50;
-  }
-  
-  .sport-card {
-    @apply glass-card p-6 rounded-xl transition-all duration-300 hover:shadow-sports hover:scale-[1.02];
-  }
-  
-  .team-card {
-    @apply glass-card p-4 rounded-lg transition-all duration-300 hover:shadow-team hover:scale-[1.01];
-  }
-  
-  .match-card {
-    @apply glass-card p-4 rounded-lg transition-all duration-300 hover:shadow-match hover:scale-[1.01];
-  }
-  
-  .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md;
-  }
-  
-  .btn-secondary {
-    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md;
-  }
-  
-  .btn-outline {
-    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium px-4 py-2 rounded-lg transition-all duration-200;
-  }
+.dark {
+  --color-background: oklch(0.1725 0.0078 264.5320);
+  --color-foreground: oklch(0.9849 0.0005 106.8092);
+  --color-card: oklch(0.2178 0.0117 264.5320);
+  --color-card-foreground: oklch(0.9849 0.0005 106.8092);
+  --color-popover: oklch(0.2178 0.0117 264.5320);
+  --color-popover-foreground: oklch(0.9849 0.0005 106.8092);
+  --color-primary: oklch(0.7058 0.2520 230.0000);
+  --color-primary-foreground: oklch(0.1725 0.0078 264.5320);
+  --color-secondary: oklch(0.8316 0.2904 85.0000);
+  --color-secondary-foreground: oklch(0.1725 0.0078 264.5320);
+  --color-muted: oklch(0.2630 0.0156 264.5320);
+  --color-muted-foreground: oklch(0.6103 0.0195 264.5320);
+  --color-accent: oklch(0.3083 0.0195 264.5320);
+  --color-accent-foreground: oklch(0.9849 0.0005 106.8092);
+  --color-destructive: oklch(0.6591 0.1530 22.1703);
+  --color-destructive-foreground: oklch(0.9849 0.0005 106.8092);
+  --color-border: oklch(0.3083 0.0195 264.5320);
+  --color-input: oklch(0.3083 0.0195 264.5320);
+  --color-ring: oklch(0.7058 0.2520 230.0000);
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Sports Theme Custom Classes */
+.sports-gradient {
+  background: linear-gradient(135deg, oklch(0.6956 0.2520 230.0000), oklch(0.5594 0.2070 230.0000), oklch(0.4705 0.1740 230.0000));
+}
+
+.team-gradient {
+  background: linear-gradient(135deg, oklch(0.6956 0.2712 145.0000), oklch(0.6278 0.1760 145.0000), oklch(0.5278 0.1480 145.0000));
+}
+
+.match-gradient {
+  background: linear-gradient(135deg, oklch(0.7895 0.2528 70.0000), oklch(0.7316 0.1632 70.0000), oklch(0.6316 0.1390 70.0000));
+}
+
+.glass-card {
+  background: oklch(1.0000 0 0 / 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(1.0000 0 0 / 0.2);
+  box-shadow: var(--shadow-lg);
+}
+
+.dark .glass-card {
+  background: oklch(0.1725 0.0078 264.5320 / 0.8);
+  border: 1px solid oklch(0.3083 0.0195 264.5320 / 0.5);
+}
+
+.sport-card {
+  background: oklch(1.0000 0 0 / 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(1.0000 0 0 / 0.2);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sports);
+}
+
+.sport-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-sports), var(--shadow-lg);
+}
+
+.dark .sport-card {
+  background: oklch(0.1725 0.0078 264.5320 / 0.8);
+  border: 1px solid oklch(0.3083 0.0195 264.5320 / 0.5);
+}
+
+.team-card {
+  background: oklch(1.0000 0 0 / 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(1.0000 0 0 / 0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-team);
+}
+
+.team-card:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-team), var(--shadow-md);
+}
+
+.dark .team-card {
+  background: oklch(0.1725 0.0078 264.5320 / 0.8);
+  border: 1px solid oklch(0.3083 0.0195 264.5320 / 0.5);
+}
+
+.match-card {
+  background: oklch(1.0000 0 0 / 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(1.0000 0 0 / 0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-match);
+}
+
+.match-card:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-match), var(--shadow-md);
+}
+
+.dark .match-card {
+  background: oklch(0.1725 0.0078 264.5320 / 0.8);
+  border: 1px solid oklch(0.3083 0.0195 264.5320 / 0.5);
+}
+
+/* Body Styling */
+body {
+  background-color: oklch(var(--color-background));
+  color: oklch(var(--color-foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-sans);
 }
