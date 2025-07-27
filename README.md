@@ -58,8 +58,8 @@ A comprehensive sports league management system built with Next.js 15, featuring
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/yourusername/league-flow.git
-cd league-flow
+git clone https://github.com/I-N-SILVA/LeagueNow.git
+cd LeagueNow
 npm install
 ```
 
@@ -248,6 +248,53 @@ League → Standing
 ### Fan Features
 - `GET /api/fan/matches/[id]` - Match info for fans
 - `POST /api/fan/matches/[id]/videos` - Upload video
+
+## 🚀 Production Deployment
+
+### Quick Deploy to Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/I-N-SILVA/LeagueNow)
+
+### Manual Deployment
+
+1. **Automated Setup Script**
+   ```bash
+   ./scripts/deploy-setup.sh
+   ```
+
+2. **Service Configuration**
+   - Follow `PRODUCTION_SERVICES.md` for detailed service setup
+   - Configure Supabase, Google OAuth, Cloudinary, and Pusher
+   - See `VERCEL_DEPLOYMENT.md` for step-by-step Vercel deployment
+
+3. **Environment Variables**
+   Configure these in Vercel dashboard or your hosting provider:
+   ```env
+   DATABASE_URL=your-supabase-url
+   NEXTAUTH_SECRET=your-secret
+   GOOGLE_CLIENT_ID=your-google-id
+   CLOUDINARY_CLOUD_NAME=your-cloudinary-name
+   PUSHER_KEY=your-pusher-key
+   # ... see DEPLOYMENT_CHECKLIST.md for complete list
+   ```
+
+4. **Database Migration**
+   ```bash
+   npx prisma migrate deploy
+   npx prisma db seed
+   ```
+
+### Live Demo
+🌐 **[View Live Demo](https://your-deployed-app.vercel.app)**
+
+Test accounts:
+- **Admin**: admin@leagueflow.com / password123
+- **Manager**: manager1@team.com / password123
+- **Referee**: referee1@league.com / password123
+
+### Deployment Documentation
+- 📋 **[Complete Deployment Checklist](DEPLOYMENT_CHECKLIST.md)**
+- 🔧 **[Production Services Setup](PRODUCTION_SERVICES.md)**
+- ⚡ **[Vercel Deployment Guide](VERCEL_DEPLOYMENT.md)**
 
 ## 🔮 Roadmap
 
