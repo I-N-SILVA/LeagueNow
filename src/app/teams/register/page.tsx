@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Header } from '@/components/layout/header'
@@ -32,7 +32,7 @@ interface TeamFormData {
   leagueId: string
 }
 
-export default function RegisterTeamPage() {
+function RegisterTeamPageContent() {
   const { data: session, status } = useSession()
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -379,5 +379,13 @@ export default function RegisterTeamPage() {
 
       <Footer />
     </div>
+  )
+}
+
+export default function RegisterTeamPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RegisterTeamPageContent />
+    </Suspense>
   )
 }

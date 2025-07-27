@@ -1,9 +1,8 @@
 "use client"
 
 import { useState, useRef } from 'react'
-import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { Upload, X, Image as ImageIcon, Video } from 'lucide-react'
+import { Image as ImageIcon, Video } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface FileUploadProps {

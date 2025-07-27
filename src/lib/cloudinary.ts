@@ -30,7 +30,12 @@ export async function uploadToCloudinary(
   } = {}
 ): Promise<CloudinaryUploadResult> {
   try {
-    const result = await cloudinary.uploader.upload(file, {
+    // Convert Buffer to base64 data URI if needed
+    const fileToUpload = Buffer.isBuffer(file) 
+      ? `data:image/upload;base64,${file.toString('base64')}`
+      : file
+
+    const result = await cloudinary.uploader.upload(fileToUpload, {
       folder: options.folder || 'leagueflow',
       resource_type: options.resource_type || 'auto',
       public_id: options.public_id,

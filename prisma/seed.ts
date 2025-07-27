@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, MatchStatus, LeagueStatus } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
@@ -99,10 +99,10 @@ async function main() {
       id: 'soccer-league-1',
       name: 'Premier Soccer League',
       sport: 'SOCCER',
-      status: 'ACTIVE',
+      status: MatchStatus.IN_PROGRESS,
       startDate: new Date('2024-01-15'),
       endDate: new Date('2024-06-15'),
-      createdById: leagueAdmin.id,
+      adminId: leagueAdmin.id,
     },
   })
 
@@ -113,10 +113,10 @@ async function main() {
       id: 'basketball-league-1',
       name: 'City Basketball Championship',
       sport: 'BASKETBALL',
-      status: 'SCHEDULED',
+      status: LeagueStatus.REGISTRATION_OPEN,
       startDate: new Date('2024-02-01'),
       endDate: new Date('2024-05-30'),
-      createdById: leagueAdmin.id,
+      adminId: leagueAdmin.id,
     },
   })
 
@@ -132,7 +132,6 @@ async function main() {
       leagueId: soccerLeague.id,
       managerId: teamManager1.id,
       logo: 'https://res.cloudinary.com/demo/image/upload/v1/tiger_logo.png',
-      homeVenue: 'Tiger Stadium',
     },
   })
 
@@ -145,7 +144,6 @@ async function main() {
       leagueId: soccerLeague.id,
       managerId: teamManager2.id,
       logo: 'https://res.cloudinary.com/demo/image/upload/v1/eagle_logo.png',
-      homeVenue: 'Eagle Field',
     },
   })
 
@@ -158,7 +156,6 @@ async function main() {
       leagueId: soccerLeague.id,
       managerId: teamManager3.id,
       logo: 'https://res.cloudinary.com/demo/image/upload/v1/lion_logo.png',
-      homeVenue: 'Lion Den',
     },
   })
 
@@ -171,7 +168,6 @@ async function main() {
       leagueId: soccerLeague.id,
       managerId: teamManager4.id,
       logo: 'https://res.cloudinary.com/demo/image/upload/v1/wolf_logo.png',
-      homeVenue: 'Wolf Pack Arena',
     },
   })
 
@@ -301,7 +297,7 @@ async function main() {
       homeTeamId: soccerTeam1.id,
       awayTeamId: soccerTeam2.id,
       scheduledAt: new Date('2024-01-20T15:00:00Z'),
-      status: 'COMPLETED',
+      status: MatchStatus.COMPLETED,
       homeScore: 2,
       awayScore: 1,
       refereeId: referee1.id,
@@ -313,7 +309,7 @@ async function main() {
       homeTeamId: soccerTeam3.id,
       awayTeamId: soccerTeam4.id,
       scheduledAt: new Date('2024-01-20T17:00:00Z'),
-      status: 'COMPLETED',
+      status: MatchStatus.COMPLETED,
       homeScore: 1,
       awayScore: 3,
       refereeId: referee2.id,
@@ -325,7 +321,7 @@ async function main() {
       homeTeamId: soccerTeam1.id,
       awayTeamId: soccerTeam3.id,
       scheduledAt: new Date('2024-01-27T15:00:00Z'),
-      status: 'IN_PROGRESS',
+      status: MatchStatus.IN_PROGRESS,
       homeScore: 1,
       awayScore: 0,
       refereeId: referee1.id,
@@ -337,7 +333,7 @@ async function main() {
       homeTeamId: soccerTeam2.id,
       awayTeamId: soccerTeam4.id,
       scheduledAt: new Date('2024-01-27T17:00:00Z'),
-      status: 'SCHEDULED',
+      status: MatchStatus.SCHEDULED,
       homeScore: 0,
       awayScore: 0,
       refereeId: referee2.id,
@@ -349,7 +345,7 @@ async function main() {
       homeTeamId: soccerTeam1.id,
       awayTeamId: soccerTeam4.id,
       scheduledAt: new Date('2024-02-03T15:00:00Z'),
-      status: 'SCHEDULED',
+      status: MatchStatus.SCHEDULED,
       homeScore: 0,
       awayScore: 0,
       refereeId: referee1.id,
@@ -361,7 +357,7 @@ async function main() {
       homeTeamId: soccerTeam2.id,
       awayTeamId: soccerTeam3.id,
       scheduledAt: new Date('2024-02-03T17:00:00Z'),
-      status: 'SCHEDULED',
+      status: MatchStatus.SCHEDULED,
       homeScore: 0,
       awayScore: 0,
       refereeId: referee2.id,
