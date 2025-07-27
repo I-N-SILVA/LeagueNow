@@ -1,16 +1,10 @@
 {
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
   "framework": "nextjs",
   "regions": ["iad1"],
   "functions": {
     "src/app/api/**/*.ts": {
-      "maxDuration": 30
+      "maxDuration": 60
     }
-  },
-  "env": {
-    "NEXTAUTH_URL": "https://league-flow.vercel.app"
   },
   "headers": [
     {
